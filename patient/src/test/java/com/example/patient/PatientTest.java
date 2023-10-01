@@ -153,7 +153,6 @@ public class PatientTest {
 
         List<Patient> patients = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<List<Patient>>() {});
         //assertThat(patients.size()==0).isTrue();
-        System.out.println(patients);
 
     }
 

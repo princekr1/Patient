@@ -11,6 +11,10 @@ import com.example.patient.repository.PatientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
+    // Refresh cache
     public String create(PatientDTO patientDTO){
         logger.debug("create() Started...");
         String message= edit(patientDTO,null);
@@ -34,6 +39,7 @@ public class PatientService {
         return message;
     }
 
+    @CacheEvict(value = "patients", allEntries = true)
     public String edit(PatientDTO patientDTO, Long id){
         logger.debug("edit() Started...");
         String message="";
@@ -75,6 +81,10 @@ public class PatientService {
         return message;
     }
 
+
+    @Caching(evict = {@CacheEvict(value = "patients", allEntries = true),
+            @CacheEvict(value = "patient", key = "#id")
+    })
     public String delete(Long id){
         String message="";
         logger.debug("delete() Started...");
@@ -94,6 +104,7 @@ public class PatientService {
         return message;
     }
 
+    @Cacheable("patients")
     public List<Patient> list(){
         logger.debug("list() Started...");
         List<Patient> patients = patientRepository.findAll();
@@ -105,6 +116,7 @@ public class PatientService {
         return patients;
     }
 
+    @CachePut(value = "patient", key = "#id")
     public Patient get(Long id){
         logger.debug("get() Started...");
         Optional<Patient> optionalPatient = patientRepository.findById(id);
@@ -120,6 +132,8 @@ public class PatientService {
         return patient;
     }
 
+
+    @CachePut(value = "patient",key = "#patientId")
     public String assignDoctor(Long patientId, Long doctorId ){
         logger.debug("assignDoctor() Started...");
         String message="";

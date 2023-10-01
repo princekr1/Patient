@@ -53,4 +53,10 @@ public class PatientResource {
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
+    @RequestMapping(value="/getPatient/{id}", method= RequestMethod.GET)
+    public ResponseEntity<?> getPatient(@PathVariable("id") Long id){
+        Patient patient = patientService.get(id);
+        return new ResponseEntity<>(patient, HttpStatus.OK);
+    }
+
 }

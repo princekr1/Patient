@@ -29,8 +29,7 @@ public class PatientApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(PatientApplication.class, args);
-		logger.info("Env : "+ ExternalConfig.ENV);
-		logger.info("file path : :${CONF_DIR}/application-${spring.profiles.active}.properties");
+
 
 	}
 
