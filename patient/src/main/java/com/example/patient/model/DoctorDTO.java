@@ -5,18 +5,25 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DoctorDTO {
     @JsonProperty
     @NotNull
+    @Size(min=1, max=10)
+    @Pattern(regexp = "^[a-zA-Z ]*$")
     private String name;
 
     @JsonProperty
     @NotNull
+    @Size(min=1, max=6)
     private String gender;
 
     @JsonProperty
     @NotNull
+    @Size(min=1, max=234)
     private String address;
 
     @JsonCreator

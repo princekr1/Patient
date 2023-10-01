@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class PatientResource {
     PatientService patientService;
 
     @RequestMapping(value="/create", method= RequestMethod.POST)
-    public ResponseEntity<?> create(@RequestBody PatientDTO patientDTO){
+    public ResponseEntity<?> create(@Valid @RequestBody PatientDTO patientDTO){
         String message = patientService.create(patientDTO);
         return new ResponseEntity<>(message, HttpStatus.CREATED);
     }
@@ -29,7 +30,7 @@ public class PatientResource {
     @RequestMapping(value="/edit/{id}", method= RequestMethod.PUT)
     public ResponseEntity<?> edit(
             @PathVariable("id") Long id,
-            @RequestBody PatientDTO patientDTO){
+            @Valid @RequestBody PatientDTO patientDTO){
         String message = patientService.edit(patientDTO,id);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }

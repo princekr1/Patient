@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class DoctorController {
     DoctorService doctorService;
 
         @RequestMapping(value="/create", method= RequestMethod.POST)
-        public ResponseEntity<?> create(@RequestBody DoctorDTO doctorDTO){
+        public ResponseEntity<?> create(@Valid @RequestBody DoctorDTO doctorDTO){
             String message = doctorService.create(doctorDTO);
             return new ResponseEntity<>(message, HttpStatus.CREATED);
         }
@@ -33,7 +34,7 @@ public class DoctorController {
         @RequestMapping(value="/edit/{id}", method= RequestMethod.PUT)
         public ResponseEntity<?> edit(
                 @PathVariable("id") Long id,
-                @RequestBody DoctorDTO doctorDTO){
+               @Valid @RequestBody DoctorDTO doctorDTO){
             String message = doctorService.edit(doctorDTO,id);
             return new ResponseEntity<>(message, HttpStatus.OK);
         }

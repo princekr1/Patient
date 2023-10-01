@@ -5,17 +5,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ContactDTO {
 
     @JsonProperty
     @NotNull
+    @Size(min=1, max=10)
+    @Pattern(regexp = "^[a-zA-Z ]*$")
     private String name;
     @JsonProperty
+    @Size(min=1, max=10)
+    @Pattern(regexp = "^[a-zA-Z ]*$")
     private String relation;
     @JsonProperty
     @NotNull
+    @Pattern(regexp = "^[0-9]*$")
+    @Max(10)
+    @Min(10)
     private Long phoneNumber;
 
     @JsonCreator
