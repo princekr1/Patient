@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 public class DoctorDTO {
     @JsonProperty
     @NotNull
-    @Size(min=1, max=10)
+    @Size(min=1, max=20)
     @Pattern(regexp = "^[a-zA-Z ]*$")
     private String name;
 

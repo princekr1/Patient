@@ -14,7 +14,7 @@ public class PatientDTO {
 
     @JsonProperty
     @NotNull
-    @Size(min=1, max=10)
+    @Size(min=1, max=20)
     @Pattern(regexp = "^[a-zA-Z ]*$")
     private String name;
     @JsonProperty
