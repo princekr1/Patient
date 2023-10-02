@@ -46,8 +46,8 @@ provide the jdbc url , username and password to connect.
 
 
 
-For full deatils please refer to word document in the root folder.
-Documentation.docx
+**For full deatils please refer to word document in the root folder.
+Documentation.docx**
 
 
 
