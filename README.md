@@ -22,7 +22,7 @@ java/com/example/patient/PatientApplication.java
 
 Enviroment variables
 
-CONF_DIR=C:\Users\princ\Desktop\Conf;spring.profiles.active=prod
+CONF_DIR={$PATH_WHERE_Conf_Folder_isPresent};spring.profiles.active=prod
 
 1. CONF_DIR property tells the property folder location
 2. 2nd property tells the active profile
