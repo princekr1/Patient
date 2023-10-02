@@ -2,5 +2,5 @@
 From openJDK:11
 LABEL maintainer="princekr1807@gmail.com"
 EXPOSE 8080
-ADD build/libs/patient-0.0.1-SNAPSHOT-plain.jar patient-docker.jar
-ENTRYPOINT ["java", "-jar", "/patient-docker.jar"]
+COPY build/libs/patient-0.0.1-SNAPSHOT-plain.jar patient-0.0.1.jar
+ENTRYPOINT ["java", "-jar", "/patient-0.0.1.jar"]
