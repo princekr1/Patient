@@ -21,6 +21,18 @@ I have introduced three external property File
 All the property is available in conf directory in git repo root
 All three properties has different datasouce defined, I am using H2 in memory database
 
+To see the apis hit the swagger link
+
+http://localhost:8080/swagger-ui.html
+
+for h2 console
+
+http://localhost:8080/h2-console
+
+provide the jdbc url , username and password to connect.
+
+
+
 For full deatils please refer to word document in the root folder.
 Documentation.docx
 
