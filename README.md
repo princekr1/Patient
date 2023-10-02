@@ -4,8 +4,11 @@ patient Service with curd operations
 Import the project in Intellij as gradle project
 
 run the below main class with enviroment variables
+
 java/com/example/patient/PatientApplication.java
+
 Enviroment variables
+
 CONF_DIR=C:\Users\princ\Desktop\Conf;spring.profiles.active=prod
 
 1. CONF_DIR property tells the property folder location
