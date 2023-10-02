@@ -1,6 +1,19 @@
 # Patient
 patient Service with curd operations
 
+Implemented All below points :
+
+Implement caching using Spring Cache to retrieve patient data.
+- Demonstrate Spring Boot's configuration management capabilities. Externalize application
+properties using property files or environment variables.
+- Implement custom exception classes and handle common scenarios like validation errors or
+resource not found.
+- Ensure profile-based configuration, enabling different configurations for different environments
+(dev, qa, prod)
+- Add minimal unit test cases.
+
+How to Run Application
+-------------------------------------------------------
 Import the project in Intellij as gradle project
 
 run the below main class with enviroment variables
