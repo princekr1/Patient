@@ -44,6 +44,9 @@ public class PatientDTO {
         this.treatmentStatus = treatmentStatus;
         this.age = age;
     }
+    public PatientDTO(){
+
+    }
 
     public String getName() {
         return name;
